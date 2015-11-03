@@ -60,7 +60,7 @@ Tell sogo to use mysql:
 docker exec -ti \
 	sogo \
 	/bin/bash -c "\
-		sudo -u sogo defaults write sogod SOGoUserSources '({canAuthenticate = YES; displayName = "SOGo Users"; id = users; isAddressBook = YES; type = sql; userPasswordAlgorithm = md5; viewURL ="mysql://sogo:bart@sogo-mysql:3306/sogo/sogo_users";})'
+		sudo -u sogo defaults write sogod SOGoUserSources '({canAuthenticate = YES; displayName = "SOGo Users"; id = users; isAddressBook = YES; type = sql; userPasswordAlgorithm = md5; viewURL ="mysql://sogo:<sogopw>@sogo-mysql:3306/sogo/sogo_users";})'
 		sudo -u sogo defaults write sogod OCSFolderInfoURL \"mysql://sogo:<sogopw>@sogo-mysql:3306/sogo/sogo_folder_info\" && \
 		sudo -u sogo defaults write sogod SOGoProfileURL \"mysql://sogo:<sogopw>@sogo-mysql:3306/sogo/sogo_user_profile\" && \
 		sudo -u sogo defaults write sogod OCSSessionsFolderURL \"mysql://sogo:<sogopw>@sogo-mysql:3306/sogo/sogo_sessions_folder\""
