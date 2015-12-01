@@ -31,5 +31,7 @@ COPY ./config/nginx.conf /etc/nginx/nginx.conf
 COPY ./config/sites-enabled/sogo.conf /etc/nginx/sites-enabled/default.conf
 
 COPY ./config/supervisord.conf /etc/supervisord.conf
+COPY ./config/sogo/sogo.conf.template /etc/sogo/sogo.conf.template
+COPY ./setup.sh /setup.sh
 
-CMD exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+CMD /bin/bash /setup.sh && exec /usr/bin/supervisord -n -c /etc/supervisord.conf
