@@ -94,7 +94,7 @@
       {
         type = sql;
         id = directory;
-        viewURL = "[[SOGO_DB_HOST]]/sogo/sogo_view";
+        viewURL = "[[SOGO_DB_HOST]]/sogo/sogo_users";
         canAuthenticate = YES;
         isAddressBook = YES;
  	      userPasswordAlgorithm = md5;
@@ -119,7 +119,7 @@
   SOGoSuperUsernames = (admin); // This is an array - keep the parens!
   //SxVMemLimit = 384;
   //WOPidFile = "/var/run/sogo/sogo.pid";
-  SOGoMemcachedHost = "127.0.0.1";
+  SOGoMemcachedHost = "/var/run/memcached/socket";
 
   /* Debug */
   //SOGoDebugRequests = YES;
