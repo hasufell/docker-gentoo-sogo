@@ -24,7 +24,8 @@
   //SOGoDraftsFolderName = Drafts;
   //SOGoSentFolderName = Sent;
   //SOGoTrashFolderName = Trash;
-  //SOGoIMAPServer = localhost;
+  SOGoIMAPServer = [[SOGO_IMAP_HOST]];
+	SOGoForceIMAPLoginWithEmail = YES;
   //SOGoSieveServer = sieve://127.0.0.1:4190;
   //SOGoSMTPServer = 127.0.0.1;
   //SOGoMailDomain = acme.com;
@@ -98,7 +99,13 @@
         canAuthenticate = YES;
         isAddressBook = YES;
  	      userPasswordAlgorithm = md5;
-      }
+      },
+			{
+				type = imap;
+				id = imapserver;
+				hostname = "[[SOGO_IMAP_HOST]]";
+				canAuthenticate=YES;
+			}
     );
 
   /* Web Interface */
