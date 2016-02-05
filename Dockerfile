@@ -1,31 +1,17 @@
-FROM        hasufell/gentoo-nginx:latest
+FROM        mosaiksoftware/gentoo-nginx:latest
 MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 
 
 ##### PACKAGE INSTALLATION #####
 
-# copy paludis config
-COPY ./config/paludis /etc/paludis
-
-# clone repositories
-RUN git clone --depth=1 https://github.com/MOSAIKSoftware/mosaik-overlay.git \
-	/var/db/paludis/repositories/mosaik-overlay
-RUN chgrp paludisbuild /dev/tty && cave sync mosaik-overlay
-
-# fetch jobs
-RUN chgrp paludisbuild /dev/tty && cave resolve -c world -x -f
-RUN chgrp paludisbuild /dev/tty && cave resolve -c sogoset -x -1 -f
-RUN chgrp paludisbuild /dev/tty && cave resolve -c tools -x -1 -f
-
-# install jobs
-RUN chgrp paludisbuild /dev/tty && cave resolve -c world -x
-RUN chgrp paludisbuild /dev/tty && cave resolve -c sogoset -x
-RUN chgrp paludisbuild /dev/tty && cave resolve -c tools -x
+# install nginx
+RUN chgrp paludisbuild /dev/tty && cave resolve -c docker-sogo -x && \
+	rm -rf /usr/portage/distfiles/* /srv/binhost/*
 
 # update etc files... hope this doesn't screw up
 RUN etc-update --automode -5
 
-# ################################
+################################
 
 
 RUN mkdir -p /var/run/sogo && chown sogo /var/run/sogo
