@@ -5,7 +5,8 @@ MAINTAINER  Julian Ospald <hasufell@gentoo.org>
 ##### PACKAGE INSTALLATION #####
 
 # install nginx
-RUN chgrp paludisbuild /dev/tty && cave resolve -c docker-sogo -x && \
+RUN chgrp paludisbuild /dev/tty && cave resolve -c docker-sogo -x \
+		-F dev-db/mysql && \
 	rm -rf /usr/portage/distfiles/* /srv/binhost/*
 
 # update etc files... hope this doesn't screw up
