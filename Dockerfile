@@ -29,6 +29,7 @@ RUN etc-update --automode -5
 
 
 RUN mkdir -p /var/run/sogo && chown sogo /var/run/sogo
+RUN mkdir -p /var/log/sogo && chown sogo /var/log/sogo
 RUN mkdir -p /var/run/memcached && chown memcached /var/run/memcached
 
 COPY ./config/nginx.conf /etc/nginx/nginx.conf
