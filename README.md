@@ -1,10 +1,5 @@
 ## Installation
 
-```sh
-docker build -t hasufell/gentoo-sogo .
-docker pull hasufell/gentoo-mysql:latest
-```
-
 ## Starting
 
 The home directory of the sogo user is `/var/lib/sogo` so you may want to
@@ -20,7 +15,7 @@ docker run -ti -d \
 	--name=sogo-mysql \
 	-e MYSQL_PASS=<mysql_admin_pass> \
 	-v <mysql-data-on-host>:/var/lib/mysql \
-	hasufell/gentoo-mysql
+	mosaiksoftware/gentoo-mysql
 ```
 
 Create sogo database:
@@ -55,5 +50,5 @@ docker run -ti -d \
 	-e SOGO_DB_HOST=mysql://sogo:<sogo-db-pw>@sogo-mysql:3306 \
 	-e SOGO_IMAPHOST=imap://<imaphost> \
 	-p 80:80 \
-	hasufell/gentoo-sogo
+	mosaiksoftware/gentoo-sogo
 ```
