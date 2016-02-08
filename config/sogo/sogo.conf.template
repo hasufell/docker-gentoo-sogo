@@ -99,13 +99,7 @@
         canAuthenticate = YES;
         isAddressBook = YES;
  	      userPasswordAlgorithm = md5;
-      },
-			{
-				type = imap;
-				id = imapserver;
-				hostname = "[[SOGO_IMAP_HOST]]";
-				canAuthenticate=YES;
-			}
+      }
     );
 
   /* Web Interface */
